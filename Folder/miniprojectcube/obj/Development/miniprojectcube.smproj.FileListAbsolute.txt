@@ -1,0 +1,7 @@
+C:\Users\brkyb\source\repos\miniprojectcube\miniprojectcube\bin\Model.asdatabase
+C:\Users\brkyb\source\repos\miniprojectcube\miniprojectcube\bin\Model.deploymenttargets
+C:\Users\brkyb\source\repos\miniprojectcube\miniprojectcube\bin\Model.deploymentoptions
+C:\Users\brkyb\source\repos\miniprojectcube\miniprojectcube\obj\Development\miniprojectcube.smproj.CoreCompileInputs.cache
+C:\Users\brkyb\source\repos\miniprojectcube\miniprojectcube\obj\Development\Model.asdatabase
+C:\Users\brkyb\source\repos\miniprojectcube\miniprojectcube\obj\Development\Model.deploymentoptions
+C:\Users\brkyb\source\repos\miniprojectcube\miniprojectcube\obj\Development\Model.deploymenttargets

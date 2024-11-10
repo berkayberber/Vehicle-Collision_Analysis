@@ -1,0 +1,748 @@
+{
+  "name": "miniprojectcube",
+  "compatibilityLevel": 1200,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "name": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather",
+        "connectionString": "Provider=SQLNCLI11;Data Source=DESKTOP-JJHQLTC\\MSSQLSERVER_LAB;User ID=project;Persist Security Info=false;Initial Catalog=VehicleandWeather",
+        "impersonationMode": "impersonateAccount",
+        "account": "project",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "dimCrashDate",
+        "columns": [
+          {
+            "name": "DateID",
+            "dataType": "int64",
+            "sourceColumn": "DateID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CrashDate",
+            "dataType": "dateTime",
+            "sourceColumn": "CrashDate",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "TheDay",
+            "dataType": "int64",
+            "sourceColumn": "TheDay",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TheDayName",
+            "dataType": "string",
+            "sourceColumn": "TheDayName",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "TheMonthName",
+            "dataType": "string",
+            "sourceColumn": "TheMonthName",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "TheYear",
+            "dataType": "int64",
+            "sourceColumn": "TheYear",
+            "sourceProviderType": "Integer"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dimCrashDate",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[dimCrashDate].* FROM [dbo].[dimCrashDate] ",
+              "dataSource": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[dimCrashDate].* FROM [dbo].[dimCrashDate] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dimCrashDate"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dimCrashTime",
+        "columns": [
+          {
+            "name": "TimeID",
+            "dataType": "int64",
+            "sourceColumn": "TimeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CrashTime",
+            "dataType": "string",
+            "sourceColumn": "CrashTime",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "Hour",
+            "dataType": "int64",
+            "sourceColumn": "Hour",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Minute",
+            "dataType": "int64",
+            "sourceColumn": "Minute",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "isDay",
+            "dataType": "int64",
+            "sourceColumn": "isDay",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "isNight",
+            "dataType": "int64",
+            "sourceColumn": "isNight",
+            "sourceProviderType": "UnsignedTinyInt"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dimCrashTime",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[dimCrashTime].* FROM [dbo].[dimCrashTime] ",
+              "dataSource": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[dimCrashTime].* FROM [dbo].[dimCrashTime] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dimCrashTime"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DimLocation",
+        "columns": [
+          {
+            "name": "LocationID",
+            "dataType": "int64",
+            "sourceColumn": "LocationID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "borough",
+            "dataType": "string",
+            "sourceColumn": "borough",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "zipcode",
+            "dataType": "string",
+            "sourceColumn": "zipcode",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "onstreetname",
+            "dataType": "string",
+            "sourceColumn": "onstreetname",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "offstreetname",
+            "dataType": "string",
+            "sourceColumn": "offstreetname",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "crossstreetname",
+            "dataType": "string",
+            "sourceColumn": "crossstreetname",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimLocation",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DimLocation].* FROM [dbo].[DimLocation] ",
+              "dataSource": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimLocation].* FROM [dbo].[DimLocation] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimLocation"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "dimVehicleType",
+        "columns": [
+          {
+            "name": "VehicleTypeID",
+            "dataType": "int64",
+            "sourceColumn": "VehicleTypeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VehicleType",
+            "dataType": "string",
+            "sourceColumn": "VehicleType",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ContributingFactortype",
+            "dataType": "string",
+            "sourceColumn": "ContributingFactortype",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dimVehicleType",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[dimVehicleType].* FROM [dbo].[dimVehicleType] ",
+              "dataSource": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[dimVehicleType].* FROM [dbo].[dimVehicleType] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "dimVehicleType"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "DimWeather",
+        "columns": [
+          {
+            "name": "weatherID",
+            "dataType": "int64",
+            "sourceColumn": "weatherID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MaxTemperature",
+            "dataType": "double",
+            "sourceColumn": "MaxTemperature",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "MinTemperature",
+            "dataType": "double",
+            "sourceColumn": "MinTemperature",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "humidity",
+            "dataType": "double",
+            "sourceColumn": "humidity",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "windspeed",
+            "dataType": "double",
+            "sourceColumn": "windspeed",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "visibility",
+            "dataType": "double",
+            "sourceColumn": "visibility",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimWeather",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[DimWeather].* FROM [dbo].[DimWeather] ",
+              "dataSource": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "AvgTemp",
+            "expression": "AVERAGE(DimWeather[MaxTemperature])"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Hierarchy1",
+            "levels": [
+              {
+                "name": "windspeed",
+                "ordinal": 0,
+                "column": "windspeed"
+              }
+            ]
+          },
+          {
+            "name": "Hierarchy2",
+            "levels": [
+              {
+                "name": "visibility",
+                "ordinal": 0,
+                "column": "visibility"
+              },
+              {
+                "name": "description",
+                "ordinal": 1,
+                "column": "description"
+              }
+            ]
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[DimWeather].* FROM [dbo].[DimWeather] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "DimWeather"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "FactCollisions",
+        "columns": [
+          {
+            "name": "CollisionID",
+            "dataType": "int64",
+            "sourceColumn": "CollisionID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CrashDateID",
+            "dataType": "int64",
+            "sourceColumn": "CrashDateID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CrashTimeID",
+            "dataType": "int64",
+            "sourceColumn": "CrashTimeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "LocationID",
+            "dataType": "int64",
+            "sourceColumn": "LocationID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "VehicleTypeID",
+            "dataType": "int64",
+            "sourceColumn": "VehicleTypeID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "WeatherID",
+            "dataType": "int64",
+            "sourceColumn": "WeatherID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "InjuredPerson",
+            "dataType": "int64",
+            "sourceColumn": "InjuredPerson",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "KilledPerson",
+            "dataType": "int64",
+            "sourceColumn": "KilledPerson",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "PedestriansInjured",
+            "dataType": "int64",
+            "sourceColumn": "PedestriansInjured",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "PedestriansKilled",
+            "dataType": "int64",
+            "sourceColumn": "PedestriansKilled",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "CyclistInjured",
+            "dataType": "int64",
+            "sourceColumn": "CyclistInjured",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "CyclistKilled",
+            "dataType": "int64",
+            "sourceColumn": "CyclistKilled",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "MotoristInjured",
+            "dataType": "int64",
+            "sourceColumn": "MotoristInjured",
+            "sourceProviderType": "SmallInt"
+          },
+          {
+            "name": "MotoristKilled",
+            "dataType": "int64",
+            "sourceColumn": "MotoristKilled",
+            "sourceProviderType": "SmallInt"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FactCollisions",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[FactCollisions].* FROM [dbo].[FactCollisions] ",
+              "dataSource": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "TotalInjuredPerson",
+            "expression": "(SUM(FactCollisions[InjuredPerson]))"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[FactCollisions].* FROM [dbo].[FactCollisions] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "FactCollisions"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "VehicleCollisionStaging",
+        "columns": [
+          {
+            "name": "CRASHDATE",
+            "dataType": "string",
+            "sourceColumn": "CRASHDATE",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CRASHTIME",
+            "dataType": "string",
+            "sourceColumn": "CRASHTIME",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "BOROUGH",
+            "dataType": "string",
+            "sourceColumn": "BOROUGH",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "ZIPCODE",
+            "dataType": "int64",
+            "sourceColumn": "ZIPCODE",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "ONSTREETNAME",
+            "dataType": "string",
+            "sourceColumn": "ONSTREETNAME",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "CROSSSTREETNAME",
+            "dataType": "string",
+            "sourceColumn": "CROSSSTREETNAME",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "OFFSTREETNAME",
+            "dataType": "string",
+            "sourceColumn": "OFFSTREETNAME",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "NUMBEROFPERSONSINJURED",
+            "dataType": "int64",
+            "sourceColumn": "NUMBEROFPERSONSINJURED",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NUMBEROFPERSONSKILLED",
+            "dataType": "int64",
+            "sourceColumn": "NUMBEROFPERSONSKILLED",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NUMBEROFPEDESTRIANSINJURED",
+            "dataType": "int64",
+            "sourceColumn": "NUMBEROFPEDESTRIANSINJURED",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NUMBEROFPEDESTRIANSKILLED",
+            "dataType": "int64",
+            "sourceColumn": "NUMBEROFPEDESTRIANSKILLED",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NUMBEROFCYCLISTINJURED",
+            "dataType": "int64",
+            "sourceColumn": "NUMBEROFCYCLISTINJURED",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NUMBEROFCYCLISTKILLED",
+            "dataType": "int64",
+            "sourceColumn": "NUMBEROFCYCLISTKILLED",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NUMBEROFMOTORISTINJURED",
+            "dataType": "int64",
+            "sourceColumn": "NUMBEROFMOTORISTINJURED",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "NUMBEROFMOTORISTKILLED",
+            "dataType": "int64",
+            "sourceColumn": "NUMBEROFMOTORISTKILLED",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CONTRIBUTINGFACTORVEHICLE1",
+            "dataType": "string",
+            "sourceColumn": "CONTRIBUTINGFACTORVEHICLE1",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "VEHICLETYPECODE1",
+            "dataType": "string",
+            "sourceColumn": "VEHICLETYPECODE1",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "VehicleCollisionStaging",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [stg].[VehicleCollisionStaging].* FROM [stg].[VehicleCollisionStaging] ",
+              "dataSource": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [stg].[VehicleCollisionStaging].* FROM [stg].[VehicleCollisionStaging] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "VehicleCollisionStaging"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "stg"
+          }
+        ]
+      },
+      {
+        "name": "WeatherStaging",
+        "columns": [
+          {
+            "name": "name",
+            "dataType": "string",
+            "sourceColumn": "name",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "datetime",
+            "dataType": "string",
+            "sourceColumn": "datetime",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "tempmax",
+            "dataType": "double",
+            "sourceColumn": "tempmax",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "tempmin",
+            "dataType": "double",
+            "sourceColumn": "tempmin",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "humidity",
+            "dataType": "int64",
+            "sourceColumn": "humidity",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "windspeed",
+            "dataType": "double",
+            "sourceColumn": "windspeed",
+            "sourceProviderType": "Numeric"
+          },
+          {
+            "name": "visibility",
+            "dataType": "int64",
+            "sourceColumn": "visibility",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "WeatherStaging",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [stg].[WeatherStaging].* FROM [stg].[WeatherStaging] ",
+              "dataSource": "SqlServer DESKTOP-JJHQLTCMSSQLSERVER_LAB VehicleandWeather"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [stg].[WeatherStaging].* FROM [stg].[WeatherStaging] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "WeatherStaging"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "stg"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "6dfe899c-22bd-4adb-a447-9726a17a2dfe",
+        "fromTable": "FactCollisions",
+        "fromColumn": "CrashDateID",
+        "toTable": "dimCrashDate",
+        "toColumn": "DateID"
+      },
+      {
+        "name": "0dd0e478-6be6-4068-8e54-7c4c339ac471",
+        "fromTable": "FactCollisions",
+        "fromColumn": "CrashTimeID",
+        "toTable": "dimCrashTime",
+        "toColumn": "TimeID"
+      },
+      {
+        "name": "c0237f06-148d-4c8d-bfd1-7022966b4788",
+        "fromTable": "FactCollisions",
+        "fromColumn": "LocationID",
+        "toTable": "DimLocation",
+        "toColumn": "LocationID"
+      },
+      {
+        "name": "c83ad951-fba2-4ca9-90b1-415a5bdf4669",
+        "fromTable": "FactCollisions",
+        "fromColumn": "VehicleTypeID",
+        "toTable": "dimVehicleType",
+        "toColumn": "VehicleTypeID"
+      },
+      {
+        "name": "b12c09ff-3a90-4b96-8955-4b33ff6bec60",
+        "fromTable": "FactCollisions",
+        "fromColumn": "WeatherID",
+        "toTable": "DimWeather",
+        "toColumn": "weatherID"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "400"
+      }
+    ]
+  }
+}
