@@ -51,22 +51,6 @@ The ETL process is implemented using SQL Server Integration Services (SSIS) and 
 
 4. Data Loading: Cleaned and transformed data is loaded into the target dimension and fact tables.
 
-### Measures
-
-The following measures are defined for analysis:
-
-- AvgTemp: Calculates the average of the maximum temperatures recorded.
-
-- Aggregation Function: AVERAGE
-
-- Formatting: Number with two decimal places
-
-- SumInjuredPerson: Computes the total number of injured persons.
-
-- Aggregation Function: SUM
-
-- Formatting: Integer without decimal places
-
 ### Technologies Used
 
 - Database: Microsoft SQL Server
