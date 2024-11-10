@@ -21,7 +21,7 @@ These datasets were cleaned and transformed to ensure consistency and usability 
 ### Dimensional Model
 The dimensional model is designed using a star schema, which includes:
 
-- Dimension Tables:
+##### Dimension Tables:
 
 - DimWeather: Contains weather-related attributes such as temperature, humidity, and visibility.
 
@@ -33,8 +33,46 @@ The dimensional model is designed using a star schema, which includes:
 
 - DimCrashTime: Contains time-related attributes for the crash incidents, allowing for analysis based on specific times of day.
 
-- Fact Table:
-
+##### Fact Table:
 
 - FactCollision: Aggregates data from the dimension tables, including measures such as the total number of injured persons, fatalities, and weather conditions at the time of the collision.
-![image](https://github.com/user-attachments/assets/accf7afa-04c3-414c-9646-3aebe792ea89)
+  
+![image](https://github.com/user-attachments/assets/3154d3b5-54fd-424f-af69-6184ef289cfe)
+
+### ETL Process
+
+The ETL process is implemented using SQL Server Integration Services (SSIS) and consists of the following stages:
+
+1. Data Extraction: Data is extracted from source files and loaded into staging tables.
+
+2. Data Cleaning: Inconsistent data and null values are addressed to ensure data quality.
+
+3. Data Transformation: Data is transformed to fit the dimensional model, including the creation of surrogate keys and handling slowly changing dimensions (SCDs).
+
+4. Data Loading: Cleaned and transformed data is loaded into the target dimension and fact tables.
+
+### Measures
+
+The following measures are defined for analysis:
+
+- AvgTemp: Calculates the average of the maximum temperatures recorded.
+
+- Aggregation Function: AVERAGE
+
+- Formatting: Number with two decimal places
+
+- SumInjuredPerson: Computes the total number of injured persons.
+
+- Aggregation Function: SUM
+
+- Formatting: Integer without decimal places
+
+### Technologies Used
+
+- Database: Microsoft SQL Server
+
+- ETL Tool: SQL Server Integration Services (SSIS)
+
+- Data Processing: Python (Pandas library)
+
+- Data Visualization: PowerBI
