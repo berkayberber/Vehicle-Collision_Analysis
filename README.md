@@ -60,3 +60,6 @@ The ETL process is implemented using SQL Server Integration Services (SSIS) and 
 - Data Processing: Python (Pandas library)
 
 - Data Visualization: PowerBI
+
+ ![image](https://github.com/user-attachments/assets/633127a9-1c9d-4611-a699-adf21bff0b0e)
+
