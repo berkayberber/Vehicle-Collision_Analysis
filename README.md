@@ -12,9 +12,9 @@ The project involves the integration of vehicle collision data and weather data 
 
 The data for this project is sourced from:
 
-- Vehicle collision datasets
+- Vehicle collision datasets (NewYork city boroughs records)
 
-- Weather condition datasets
+- Weather condition datasets (2016-2019)
 
 These datasets were cleaned and transformed to ensure consistency and usability for analysis.
 
