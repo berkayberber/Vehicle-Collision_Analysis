@@ -61,6 +61,6 @@ The ETL process is implemented using SQL Server Integration Services (SSIS) and 
 
 - Data Visualization: PowerBI
 
-Stage1 & Stage2 completed in 4 week. However, Visualize part was online task. Output:
+Stage1 & Stage2 completed in 4 week. However, Visualize part was live task during class. Output:
  ![image](https://github.com/user-attachments/assets/633127a9-1c9d-4611-a699-adf21bff0b0e)
 
